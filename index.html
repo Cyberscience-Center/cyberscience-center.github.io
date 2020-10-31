@@ -55,31 +55,47 @@
       </div>
     </div>
   </nav>
-
+ 
   <header class="masthead">
     <div class="container h-100">
       <div class="row h-100">
-        <div class="col-lg-7 my-auto">
+        <div class="col-lg-12 my-auto">
           <div class="header-content mx-auto">
             <h1 class="mb-5">
               <!--New Age is an app landing page that will help you beautifully showcase your new mobile app,
               or anything else!-->
               Cyberscience Center,<br>
               Tohoku University
+			
             </h1>
+			
             <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Detail</a>
+			<script src="js/three.min.js"></script>
+		   <script src="js/panolens.min.js"></script>
+		   <script>
+			const panorama = new PANOLENS.ImagePanorama( 'asset/pano/HET_0031.JPG' );
+			const viewer = new PANOLENS.Viewer();
+			viewer.add( panorama );
+			</script>
           </div>
+		  
         </div>
       </div>
     </div>
+	  
   </header>
-
+  
+  <!--<section class="dummy" id="dummy">
+   
+  </section>-->
+  
   <section class="download bg-primary text-center" id="download">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 mx-auto">
+        <div class="col-md-10 mx-auto">
           <!--<img src="img/logo-removebg.png" class="img-fluid" alt="">-->
-          <h2 class="section-heading">Operation Start of Our New Supercomputer "AOBA"</h2>
+          <!--<h2 class="section-heading">Operation Start of Our New Supercomputer "AOBA"</h2>-->
+		  <h2 class="section-heading">We Just Release Our New Supercomputer "AOBA"</h2>
           <!--<img src="img/logo-removebg.png" class="img-fluid" alt="">-->
           <p>
           <div class="embed-responsive embed-responsive-16by9">
@@ -176,8 +192,9 @@
 
   <section class="cta">
     <div class="cta-content">
-      <div class="container">
-        <h2>Stop waiting.<br>Start building.</h2>
+      <div class="container ">
+        <!--<h2>Stop waiting.<br>Start building.</h2>-->
+		<h2>Don't wait, <br/> start innovate now.</h2>
         <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
       </div>
     </div>
@@ -211,7 +228,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; Your Website 2020. All Rights Reserved.</p>
+      <p>&copy; Cyberscience Center 2020. All Rights Reserved.</p>
       <ul class="list-inline">
         <li class="list-inline-item">
           <a href="#">Privacy</a>
