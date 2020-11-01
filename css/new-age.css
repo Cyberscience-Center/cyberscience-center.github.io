@@ -476,6 +476,20 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   background-color: #a68ed4;
 }
 
+.btn-outline-bl {
+  color: grey;
+  border: 1px solid;
+  border-color: gray;
+}
+
+.btn-outline-bl:hover, .btn-outline-bl:focus, .btn-outline-bl:active, .btn-outline-bl.active {
+  color: white;
+  border-color: #fdcc52;
+  /*background-color: #fdcc52;*/
+  background-color: #a68ed4;
+}
+
+
 .btn {
   border-radius: 300px;
   font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
