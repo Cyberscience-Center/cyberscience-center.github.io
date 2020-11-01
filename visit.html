@@ -50,6 +50,20 @@
       .text {
         padding: 0 20px 20px 20px;
       }
+
+      #progress {
+        width: 0;
+        height: 5px;
+        position: fixed;
+        top: 0;
+        background: #fff;
+        -webkit-transition: opacity 0.5s ease;
+        transition: opacity 0.5s ease;
+      }
+
+      #progress.finish {
+        opacity: 0;
+      }
     </style>
   </head>
 
@@ -95,12 +109,27 @@
         </ul>
       </div>
     </div>    
+    <div id="progress"></div>
 
     <script src="js/three.min.js"></script>
     <script src="js/panolens.min.js"></script>
 
     <script>
-      var infospot1, infospot2, infospot3, panorama, viewer;
+      var infospot1, infospot2, infospot3, panorama, viewer,progress, progressElement;;
+
+      progressElement = document.getElementById( 'progress' );
+      function onEnter ( event ) {
+        progressElement.style.width = 0;
+        progressElement.classList.remove( 'finish' );
+      }
+
+      function onProgress ( event ) {
+        progress = event.progress.loaded / event.progress.total * 100;
+        progressElement.style.width = progress + '%';
+        if ( progress === 100 ) {
+          progressElement.classList.add( 'finish' );
+        }
+      }
 
       infospot1 = new PANOLENS.Infospot();
       infospot1.position.set( 4989.05, 166.61, -83.99 );
@@ -116,6 +145,8 @@
       infospot3.addHoverElement( document.getElementById( 'desc-aoba-b' ), 20 );
 
       panorama = new PANOLENS.ImagePanorama('assets/pano/HET_0032.JPG');
+      panorama.addEventListener( 'progress', onProgress );
+      panorama.addEventListener( 'enter', onEnter );
       panorama.add( infospot1 );
       panorama.add( infospot2 );
       panorama.add( infospot3 );
