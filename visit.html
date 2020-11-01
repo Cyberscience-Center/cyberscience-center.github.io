@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, shrink-to-fit=no">
+    <title>Tohoku University Cyberscience Center</title>
+    <style>
+      html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #000;
+      }
+
+      a:link, a:visited{
+        color: #bdc3c7;
+      }
+
+      .credit{
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        padding: 20px 0;
+        color: #fff;
+      }
+      .desc-container {
+        max-width: 500px;
+        max-height: 500px;
+        min-width: 200px;
+        min-height: 250px;
+        background: #fff;
+        color: #000;
+        border-radius: 3px;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .desc-container > iframe {
+        border: none;
+        width:100%;
+      }
+
+      .title {
+        font-size: 1.5em;
+        text-align: center;
+        padding: 5px;
+      }
+
+      .text {
+        padding: 0 20px 20px 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="credit">This is the computer room of Supercomputer AOBA. [<a href="./index.html">Back</a>]</div>
+
+    <div id="desc-aoba-a" class="desc-container" style="display:none">
+      <!--<iframe src="https://www.youtube.com/embed/D7icsuamx5E"></iframe>-->
+      <div class="title">AOBA-A</div>
+      <div class="text">
+	      Model: NEC SX-Aurora TSUBASA B401-8<br>
+        <img src="./assets/img/ve02_still.png" width="100%"/>
+        <ul>
+          <li>72 nodes (72 CPUs + 576 VEs)</li>
+          <li>Peak performance: 1.48 Pflop/s</li>
+          <li>Memory capacity : 45 TB</li>
+          <li>Memory bandwidth: 895.68 TB/s</li>
+        </ul>
+      </div>
+    </div>    
+    <div id="desc-aoba-b" class="desc-container" style="display:none">
+      <div class="title">AOBA-B</div>
+      <div class="text">
+	      Model: NEC LX 406Rz-2<br>
+	      <img src="./assets/img/as_-2124bt-htr_front.jpg" width="80%"/>
+        <ul>
+          <li>68 nodes (136 CPUs)</li>
+          <li>Peak performance: 278.5 Tflop/s</li>
+          <li>Memory capacity : 17.4 TB</li>
+          <li>Memory bandwidth: 27.2 TB/s</li>
+        </ul>
+      </div>
+    </div>    
+    <div id="desc-ddn" class="desc-container" style="display:none">
+      <div class="title">Storage</div>
+      <div class="text">
+	      Model: DDN SFA7990XE<br>
+	      <img src="./assets/img/SFA7990X-front-bezel.png" width="80%"/>
+        <ul>
+          <li>Capacity   : 2 PB</li>
+          <li>Filesystem : NEC ScaTeFS</li>
+        </ul>
+      </div>
+    </div>    
+
+    <script src="js/three.min.js"></script>
+    <script src="js/panolens.min.js"></script>
+
+    <script>
+      var infospot1, infospot2, infospot3, panorama, viewer;
+
+      infospot1 = new PANOLENS.Infospot();
+      infospot1.position.set( 4989.05, 166.61, -83.99 );
+      //infospot.addHoverText( 'Storage System: DDN SFA7990XE 2PB' );
+      infospot1.addHoverElement( document.getElementById( 'desc-ddn' ), 20 );
+
+      infospot2 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+      infospot2.position.set( 2022.45, 468.49, -4545.90 );
+      infospot2.addHoverElement( document.getElementById( 'desc-aoba-a' ), 20 );
+
+      infospot3 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+      infospot3.position.set( -2880.79, 78.1, -4079.18 );
+      infospot3.addHoverElement( document.getElementById( 'desc-aoba-b' ), 20 );
+
+      panorama = new PANOLENS.ImagePanorama('assets/pano/HET_0032.JPG');
+      panorama.add( infospot1 );
+      panorama.add( infospot2 );
+      panorama.add( infospot3 );
+      viewer = new PANOLENS.Viewer({horizontalView: true, output: 'overlay'});
+
+      viewer.add(panorama);
+    </script>
+  </body>
+</html>
