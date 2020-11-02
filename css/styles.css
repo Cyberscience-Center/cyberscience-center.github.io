@@ -10010,7 +10010,7 @@ p {
   padding: 6rem 0;
 }
 .page-section h2.section-heading {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-top: 0;
   margin-bottom: 1rem;
 }
@@ -10025,6 +10025,12 @@ p {
 @media (min-width: 768px) {
   section {
     padding: 9rem 0;
+  }
+  
+  .page-section h2.section-heading {
+	font-size: 2.5rem;
+	margin-top: 0;
+	margin-bottom: 1rem;
   }
 }
 ::-moz-selection {
@@ -10052,8 +10058,14 @@ img::-moz-selection {
 .btn-xl {
   padding: 1.25rem 2.5rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .btn-xl {
+	font-size: 1.125rem;
+  }
 }
 
 .btn-social {
@@ -10166,7 +10178,8 @@ header.masthead .masthead-subheading {
   text-shadow: 1px 2px 3px #808080;
 }
 header.masthead .masthead-heading {
-  font-size: 3.25rem;
+  /*font-size: 3.25rem */
+  font-size: 2.5rem;
   font-weight: 700;
   line-height: 3.25rem;
   margin-bottom: 2rem;
@@ -10180,13 +10193,14 @@ header.masthead .masthead-heading {
     padding-bottom: 12.5rem;
   }
   header.masthead .masthead-subheading {
-    font-size: 2.25rem;
+    font-size: 2.5rem;
     font-style: italic;
     line-height: 2.25rem;
     margin-bottom: 2rem;
   }
   header.masthead .masthead-heading {
-    font-size: 4.5rem;
+    /*font-size: 4.5rem;*/
+	font-size: 4.5rem;
     font-weight: 700;
     line-height: 4.5rem;
     margin-bottom: 4rem;
@@ -10246,9 +10260,15 @@ header.masthead .masthead-heading {
   text-align: center;
 }
 .portfolio-modal .modal-content h2 {
-  font-size: 3rem;
+  font-size: 1.75rem;
   line-height: 3rem;
 }
+@media (min-width: 768px) {
+  .portfolio-modal .modal-content h2 {
+    font-size: 3rem;
+  }
+}
+
 .portfolio-modal .modal-content p.item-intro {
   font-style: italic;
   margin-bottom: 2rem;
