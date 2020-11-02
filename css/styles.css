@@ -69,6 +69,12 @@ body {
   background-color: #fff;
 }
 
+@media (max-width: 320px) {
+  body {
+    font-weight: 350;
+  }
+}
+
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
@@ -10179,7 +10185,7 @@ header.masthead .masthead-subheading {
 }
 header.masthead .masthead-heading {
   /*font-size: 3.25rem */
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   font-weight: 700;
   line-height: 3.25rem;
   margin-bottom: 2rem;
@@ -10260,7 +10266,7 @@ header.masthead .masthead-heading {
   text-align: center;
 }
 .portfolio-modal .modal-content h2 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   line-height: 3rem;
 }
 @media (min-width: 768px) {
