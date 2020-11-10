@@ -69,7 +69,7 @@
 
   <body>
 
-    <div class="credit">This is the computer room of Supercomputer AOBA. [<a href="./index.html">Back</a>]</div>
+    <div class="credit">東北大学サイバーサイエンスセンターバーチャル見学 [<a href="./index.html">Back</a>]</div>
 
     <div id="desc-aoba-a" class="desc-container" style="display:none">
       <!--<iframe src="https://www.youtube.com/embed/D7icsuamx5E"></iframe>-->
@@ -89,7 +89,7 @@
       <div class="title">AOBA-B</div>
       <div class="text">
 	      Model: NEC LX 406Rz-2<br>
-	      <img src="./assets/img/as_-2124bt-htr_front.jpg" width="80%"/>
+        <img src="./assets/img/as_-2124bt-htr_front.jpg" width="80%"/>
         <ul>
           <li>68 nodes (136 CPUs)</li>
           <li>Peak performance: 278.5 Tflop/s</li>
@@ -115,7 +115,8 @@
     <script src="js/panolens.min.js"></script>
 
     <script>
-      var infospot1, infospot2, infospot3, panorama, viewer,progress, progressElement;;
+      var infospot1, infospot2, infospot3, viewer,progress, progressElement;
+      var scene1, scene2, scene3, scene4, scene5;
 
       progressElement = document.getElementById( 'progress' );
       function onEnter ( event ) {
@@ -143,18 +144,26 @@
       infospot3 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
       infospot3.position.set( -3564.41,-922.45,-3370.62);
       infospot3.addHoverElement( document.getElementById( 'desc-aoba-b' ), 20 );
-      viewer = new PANOLENS.Viewer({
-        horizontalView: true,
-        autoHideInfospot: false, 
-        output: 'overlay'});
-      panorama = new PANOLENS.ImagePanorama('assets/pano/HET_0033-low.jpg');
-      viewer.add(panorama);
 
-      panorama.addEventListener( 'progress', onProgress );
-      panorama.addEventListener( 'enter', onEnter );
-      panorama.add( infospot1 );
-      panorama.add( infospot2 );
-      panorama.add( infospot3 );
+      scene1 = new PANOLENS.ImagePanorama('assets/pano/HET_0025-low.jpg');
+      scene1.addEventListener( 'progress', onProgress );
+      scene1.addEventListener( 'enter', onEnter );
+      scene2 = new PANOLENS.ImagePanorama('assets/pano/HET_0033-low.jpg');
+      scene2.addEventListener( 'progress', onProgress );
+      scene2.addEventListener( 'enter', onEnter );
+      scene2.add( infospot1 );
+      scene2.add( infospot2 );
+      scene2.add( infospot3 );
+      scene1.link(scene2, new THREE.Vector3(4531.97,14.26,-2102.63));
+
+      viewer = new PANOLENS.Viewer({
+          horizontalView:true, 
+          autoHideInfospot: false,
+          output:'overlay', 
+          initialLookAt:new THREE.Vector3(4351.63,628.75,-2362.34)});
+      viewer.add(scene1);
+      viewer.add(scene2);
+
     </script>
   </body>
 </html>
